@@ -1,32 +1,36 @@
 <template>
-    <div>
-        <div v-for="article in articles" :key="article.id">
-            <h1>{{ article.title }}</h1>
-        </div>
-
-    </div>
+  <div>
+    <v-container>
+      <v-row>
+        <v-col>
+          <v-card
+            class="ma-sm-5 ma-lg-16"
+            v-for="article in articles"
+            :key="article.id"
+          >
+            <v-progress-linear height="30" color="white"></v-progress-linear>
+            <v-img v-bind:src="article.urlToImage" class="mx-16" alt=""></v-img>
+            <v-card-title class="ma-3">
+              {{ article.title }}
+            </v-card-title>
+            <v-card-subtitle>{{ article.author }}</v-card-subtitle>
+            <v-card-text>{{ article.description }}</v-card-text>
+            <v-card-subtitle>
+              <a :href="article.url" target="__blank">Click for more info...</a>
+            </v-card-subtitle>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+    
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
 export default {
-    data() {
-        // var url = 'http://newsapi.org/v2/top-headlines?country=ph&';
-        // var key = 'apiKey=b0008b5dd1614071a478c7756ee46fb4';
-
-        return {
-            articles: []
-        }
-    },
-    methods: {
-        
-    },
-    mounted() {
-        axios.get('http://newsapi.org/v2/top-headlines?country=ph&apiKey=b0008b5dd1614071a478c7756ee46fb4')
-        .then(res => {
-            console.log(res.data.articles);
-            this.articles = res.data.articles;
-        })
-    },
-}
+  props: {
+    articles: Array,
+  },
+  methods: {},
+};
 </script>
