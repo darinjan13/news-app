@@ -3,12 +3,15 @@
     <v-container>
       <v-row>
         <v-col>
+          <v-alert text color="success">
+            <h2 class="caption text-uppercase">Today's News Headline</h2>
+          </v-alert>
           <v-card
-            class="ma-sm-5 ma-lg-16"
+            class="mb-sm-5 mb-lg-16"
             v-for="article in articles"
             :key="article.id"
           >
-            <v-progress-linear height="30" color="white"></v-progress-linear>
+            <v-progress-linear height="30" color="dark"></v-progress-linear>
             <v-img v-bind:src="article.urlToImage" class="mx-16" alt=""></v-img>
             <v-card-title class="ma-3">
               {{ article.title }}

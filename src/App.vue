@@ -1,10 +1,7 @@
 <template>
   <v-app id="app">
-    <v-navigation-drawer v-model="drawer" app>
       <Navbar />
-    </v-navigation-drawer>
     <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"> </v-app-bar-nav-icon>
       <v-toolbar-title>News</v-toolbar-title>
     </v-app-bar>
     <v-main>
@@ -41,7 +38,6 @@ export default {
     // var key = 'apiKey=b0008b5dd1614071a478c7756ee46fb4';
 
     return {
-      drawer: false,
       userSearch: null,
       articles: [],
     };
