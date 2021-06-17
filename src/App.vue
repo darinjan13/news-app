@@ -44,7 +44,7 @@ export default {
         "https://newsapi.org/v2/top-headlines?country=ph&apiKey=b0008b5dd1614071a478c7756ee46fb4"
       )
       .then((res) => {
-        
+        console.log(res.data.articles);
         this.articles = res.data.articles;
       });
   },
