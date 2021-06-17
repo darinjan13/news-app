@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">
-      <Navbar />
+      
     <v-app-bar app>
       <v-toolbar-title>News</v-toolbar-title>
     </v-app-bar>
@@ -22,20 +22,16 @@ import axios from "axios";
 
 import Home from "./components/Home";
 import Weather from "./components/Weather";
-import Navbar from "./components/Navbar";
 
 export default {
   name: "App",
 
   components: {
-    Navbar,
     Home,
     Weather,
   },
 
   data() {
-    // var url = 'http://newsapi.org/v2/top-headlines?country=ph&';
-    // var key = 'apiKey=b0008b5dd1614071a478c7756ee46fb4';
 
     return {
       userSearch: null,
@@ -48,7 +44,7 @@ export default {
         "https://newsapi.org/v2/top-headlines?country=ph&apiKey=b0008b5dd1614071a478c7756ee46fb4"
       )
       .then((res) => {
-        console.log(res.data.articles);
+        
         this.articles = res.data.articles;
       });
   },

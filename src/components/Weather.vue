@@ -19,13 +19,13 @@
           >
             <v-carousel-item v-for="d in DF" :key="d.id">
               <v-card>
-                <v-sheet height="200" color="primary">
+                <v-sheet height="200" color="dark">
                   <v-card-text>Date: {{ d.Date }}</v-card-text>
                   <v-avatar tile class="mt-n6" size="100" v-if="parseInt(d.Day.Icon) < 10">
-                    <v-img contain :src="`${icon}0${d.Day.Icon}-s.png`"></v-img>
+                    <v-img contain :src="`${icon}0${d.Day.Icon}-s.png`" alt="img"></v-img>
                   </v-avatar>
                   <v-avatar tile class="mt-n6" size="100" v-else>
-                    <v-img contain :src="`${icon}${d.Day.Icon}-s.png`">
+                    <v-img contain :src="`${icon}${d.Day.Icon}-s.png`" alt="img">
                     </v-img>
                   </v-avatar>
                   <v-card-subtitle class="mt-n6">{{ d.Day.IconPhrase }}</v-card-subtitle>
@@ -52,10 +52,10 @@ export default {
   mounted() {
     axios
       .get(
-        "http://dataservice.accuweather.com/forecasts/v1/daily/5day/262736?apikey=p8NirceXo8WtobGtRONzNhaAxIbAY5CO&metric=true"
+        "https://dataservice.accuweather.com/forecasts/v1/daily/5day/262736?apikey=p8NirceXo8WtobGtRONzNhaAxIbAY5CO&metric=true"
       )
       .then((res) => {
-        console.log(res.data.Headline);
+        console.log(res.data.DailyForecasts);
         this.DF = res.data.DailyForecasts;
         this.HL = res.data.Headline;
         this.icon = "https://developer.accuweather.com/sites/default/files/";
@@ -63,3 +63,4 @@ export default {
   },
 };
 </script>
+
